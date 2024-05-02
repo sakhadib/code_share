@@ -1,0 +1,991 @@
+{
+  "test": {
+    "prefix": "test",
+    "body": [
+      "ll t;",
+      "cin >> t;",
+      "while(t--){",
+      "    ",
+      "}"
+    ],
+    "description": "Run C++ program taking input from input.txt and showing output in output.txt"
+  },
+
+
+    // 1D Peek Finding
+
+  "1D_Peek_Binary":{
+    "prefix": "1D_Peek_Binary",
+    "body": [
+      "void find_peek_binary(vector<int>& arr){",
+      "   int n = arr.size();",
+      "   int low = 0, high = n-1;",
+      "   while(low <= high){",
+      "       int mid = low + (high - low)/2;",
+      "       if (mid == 0 || arr[mid] >= arr[mid - 1]) {",
+      "           if (mid == n - 1 || arr[mid] >= arr[mid + 1]) {",
+      "               cout << arr[mid] << \" at index \" << mid << endl;",
+      "               return;",
+      "           }",
+      "       }",
+      "       if(mid > 0 && arr[mid-1] > arr[mid]){",
+      "           high = mid - 1;",
+      "       }",
+      "       else{",
+      "           low = mid + 1;",
+      "       }",
+      "   }",
+      "}"
+    ]
+  },
+
+  // 2D Peek Finding
+
+  "2D_Peek_Binary":{
+    "prefix": "2D_Peek_Binary",
+    "body": [
+      "void find_peek(vector<vector<int> > &mat){",
+      "  int row = mat.size();",
+      "  int col = mat[0].size();",
+    
+      "  int low = 0, high = col-1;",
+      "  while(low <= high){",
+      "      int mid = low + (high - low)/2;",
+      "      int mri = 0;",
+      "      for(int i=0; i<row; i++){",
+      "          if(mat[i][mid] > mat[mri][mid]){",
+      "              mri = i;",
+      "          }",
+      "      }",
+      "      if (mid == 0) {",
+      "          if (mat[mri][mid] >= mat[mri][mid - 1]) {",
+      "              if (mid == col - 1 || mat[mri][mid] >= mat[mri][mid + 1]) {",
+      "                  cout << mat[mri][mid] << \" at index \" << mri << \" \" << mid << endl;",
+      "                  return;",
+      "              }",
+      "          }",
+      "      } else if (mid == col - 1) {",
+      "          if (mat[mri][mid] >= mat[mri][mid + 1]) {",
+      "              if (mid == 0 || mat[mri][mid] >= mat[mri][mid - 1]) {",
+      "                  cout << mat[mri][mid] << \" at index \" << mri << \" \" << mid << endl;",
+      "                  return;",
+      "              }",
+      "          }",
+      "      } else {",
+      "          if (mat[mri][mid] >= mat[mri][mid - 1]) {",
+      "              if (mat[mri][mid] >= mat[mri][mid + 1]) {",
+      "                  cout << mat[mri][mid] << \" at index \" << mri << \" \" << mid << endl;",
+      "                  return;",
+      "              }",
+      "          }",
+      "      }",
+      "      if(mid > 0 && mat[mri][mid-1] > mat[mri][mid]){",
+      "          high = mid - 1;",
+      "      }",
+      "      else{",
+      "          low = mid + 1;",
+      "      }",
+      "  }",
+      "}"
+    ]
+  },
+
+
+  // TODO: Sorting
+
+  // Bubble Sort
+
+  "Bubble_Sort":{
+    "prefix": "Bubble_Sort",
+    "body": [
+      "void bubble_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    for(int i=0; i<n; i++){",
+      "        for(int j=0; j<n-i-1; j++){",
+      "            if(arr[j] > arr[j+1]){",
+      "                swap(arr[j], arr[j+1]);",
+      "            }",
+      "        }",
+      "    }",
+      "}"
+    ]
+  },
+
+  // Selection Sort
+
+  "Selection_Sort":{
+    "prefix": "Selection_Sort",
+    "body": [
+      "void selection_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    for(int i=0; i<n; i++){",
+      "        int min_index = i;",
+      "        for(int j=i+1; j<n; j++){",
+      "            if(arr[j] < arr[min_index]){",
+      "                min_index = j;",
+      "            }",
+      "        }",
+      "        swap(arr[i], arr[min_index]);",
+      "    }",
+      "}"
+    ]
+  },
+
+  // Insertion Sort
+
+  "Insertion_Sort":{
+    "prefix": "Insertion_Sort",
+    "body": [
+      "void insertion_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    for(int i=1; i<n; i++){",
+      "        int key = arr[i];",
+      "        int j = i-1;",
+      "        while(j >= 0 && arr[j] > key){",
+      "            arr[j+1] = arr[j];",
+      "            j--;",
+      "        }",
+      "        arr[j+1] = key;",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Merge Sort
+
+  "Merge_Sort":{
+    "prefix": "Merge_Sort",
+    "body": [
+      "void merge(vector<int>& arr, int l, int m, int r){",
+      "    int n1 = m - l + 1;",
+      "    int n2 = r - m;",
+      "    vector<int> L(n1), R(n2);",
+      "    for(int i=0; i<n1; i++){",
+      "        L[i] = arr[l+i];",
+      "    }",
+      "    for(int i=0; i<n2; i++){",
+      "        R[i] = arr[m+1+i];",
+      "    }",
+      "    int i=0, j=0, k=l;",
+      "    while(i < n1 && j < n2){",
+      "        if(L[i] <= R[j]){",
+      "            arr[k] = L[i];",
+      "            i++;",
+      "        }",
+      "        else{",
+      "            arr[k] = R[j];",
+      "            j++;",
+      "        }",
+      "        k++;",
+      "    }",
+      "    while(i < n1){",
+      "        arr[k] = L[i];",
+      "        i++;",
+      "        k++;",
+      "    }",
+      "    while(j < n2){",
+      "        arr[k] = R[j];",
+      "        j++;",
+      "        k++;",
+      "    }",
+      "}",
+      "",
+      "void merge_sort(vector<int>& arr, int l, int r){",
+      "    if(l < r){",
+      "        int m = l + (r-l)/2;",
+      "        merge_sort(arr, l, m);",
+      "        merge_sort(arr, m+1, r);",
+      "        merge(arr, l, m, r);",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Heap Sort
+
+  "Heap_Sort":{
+    "prefix": "Heap_Sort",
+    "body": [
+      "void heapify(vector<int>& arr, int n, int i){",
+      "    int largest = i;",
+      "    int l = 2*i + 1;",
+      "    int r = 2*i + 2;",
+      "    if(l < n && arr[l] > arr[largest]){",
+      "        largest = l;",
+      "    }",
+      "    if(r < n && arr[r] > arr[largest]){",
+      "        largest = r;",
+      "    }",
+      "    if(largest != i){",
+      "        swap(arr[i], arr[largest]);",
+      "        heapify(arr, n, largest);",
+      "    }",
+      "}",
+      "",
+      "void heap_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    for(int i=n/2-1; i>=0; i--){",
+      "        heapify(arr, n, i);",
+      "    }",
+      "    for(int i=n-1; i>0; i--){",
+      "        swap(arr[0], arr[i]);",
+      "        heapify(arr, i, 0);",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Quick Sort
+
+  "Quick_Sort":{
+    "prefix": "Quick_Sort",
+    "body": [
+      "int partition(vector<int>& arr, int low, int high){",
+      "    int pivot = arr[high];",
+      "    int i = low - 1;",
+      "    for(int j=low; j<high; j++){",
+      "        if(arr[j] < pivot){",
+      "            i++;",
+      "            swap(arr[i], arr[j]);",
+      "        }",
+      "    }",
+      "    swap(arr[i+1], arr[high]);",
+      "    return i+1;",
+      "}",
+      "",
+      "void quick_sort(vector<int>& arr, int low, int high){",
+      "    if(low < high){",
+      "        int pi = partition(arr, low, high);",
+      "        quick_sort(arr, low, pi-1);",
+      "        quick_sort(arr, pi+1, high);",
+      "    }",
+      "}"
+    ]
+  },
+
+  // Counting Sort
+
+  "Counting_Sort":{
+    "prefix": "Counting_Sort",
+    "body": [
+      "void counting_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    int max_val = *max_element(arr.begin(), arr.end());",
+      "    vector<int> count(max_val+1, 0);",
+      "    vector<int> output(n);",
+      "    for(int i=0; i<n; i++){",
+      "        count[arr[i]]++;",
+      "    }",
+      "    for(int i=1; i<=max_val; i++){",
+      "        count[i] += count[i-1];",
+      "    }",
+      "    for(int i=n-1; i>=0; i--){",
+      "        output[count[arr[i]]-1] = arr[i];",
+      "        count[arr[i]]--;",
+      "    }",
+      "    for(int i=0; i<n; i++){",
+      "        arr[i] = output[i];",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Radix Sort
+
+  "Radix_Sort":{
+    "prefix": "Radix_Sort",
+    "body": [
+      "void counting_sort(vector<int>& arr, int exp){",
+      "    int n = arr.size();",
+      "    vector<int> output(n);",
+      "    vector<int> count(10, 0);",
+      "    for(int i=0; i<n; i++){",
+      "        count[(arr[i]/exp)%10]++;",
+      "    }",
+      "    for(int i=1; i<10; i++){",
+      "        count[i] += count[i-1];",
+      "    }",
+      "    for(int i=n-1; i>=0; i--){",
+      "        output[count[(arr[i]/exp)%10]-1] = arr[i];",
+      "        count[(arr[i]/exp)%10]--;",
+      "    }",
+      "    for(int i=0; i<n; i++){",
+      "        arr[i] = output[i];",
+      "    }",
+      "}",
+      "",
+      "void radix_sort(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    int max_val = *max_element(arr.begin(), arr.end());",
+      "    for(int exp=1; max_val/exp > 0; exp *= 10){",
+      "        counting_sort(arr, exp);",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Bucket Sort
+
+  "Bucket_Sort":{
+    "prefix": "Bucket_Sort",
+    "body": [
+      "void bucket_sort(vector<float>& arr){",
+      "    int n = arr.size();",
+      "    vector<float> b[n];",
+      "    for(int i=0; i<n; i++){",
+      "        int bi = n*arr[i];",
+      "        b[bi].push_back(arr[i]);",
+      "    }",
+      "    for(int i=0; i<n; i++){",
+      "        sort(b[i].begin(), b[i].end());",
+      "    }",
+      "    int index = 0;",
+      "    for(int i=0; i<n; i++){",
+      "        for(int j=0; j<b[i].size(); j++){",
+      "            arr[index++] = b[i][j];",
+      "        }",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Todo : Searching
+
+  // Linear Search
+
+  "Linear_Search":{
+    "prefix": "Linear_Search",
+    "body": [
+      "int linear_search(vector<int>& arr, int key){",
+      "    int n = arr.size();",
+      "    for(int i=0; i<n; i++){",
+      "        if(arr[i] == key){",
+      "            return i;",
+      "        }",
+      "    }",
+      "    return -1;",
+      "}"
+    ]
+  },
+
+
+  // Binary Search
+
+  "Binary_Search":{
+    "prefix": "Binary_Search",
+    "body": [
+      "int binary_search(vector<int>& arr, int key){",
+      "    int n = arr.size();",
+      "    int low = 0, high = n-1;",
+      "    while(low <= high){",
+      "        int mid = low + (high - low)/2;",
+      "        if(arr[mid] == key){",
+      "            return mid;",
+      "        }",
+      "        else if(arr[mid] < key){",
+      "            low = mid + 1;",
+      "        }",
+      "        else{",
+      "            high = mid - 1;",
+      "        }",
+      "    }",
+      "    return -1;",
+      "}"
+    ]
+  },
+
+
+  // Ternary Search
+
+  "Ternary_Search":{
+    "prefix": "Ternary_Search",
+    "body": [
+      "int ternary_search(vector<int>& arr, int key){",
+      "    int n = arr.size();",
+      "    int low = 0, high = n-1;",
+      "    while(low <= high){",
+      "        int mid1 = low + (high - low)/3;",
+      "        int mid2 = high - (high - low)/3;",
+      "        if(arr[mid1] == key){",
+      "            return mid1;",
+      "        }",
+      "        if(arr[mid2] == key){",
+      "            return mid2;",
+      "        }",
+      "        if(arr[mid1] > key){",
+      "            high = mid1 - 1;",
+      "        }",
+      "        else if(arr[mid2] < key){",
+      "            low = mid2 + 1;",
+      "        }",
+      "        else{",
+      "            low = mid1 + 1;",
+      "            high = mid2 - 1;",
+      "        }",
+      "    }",
+      "    return -1;",
+      "}"
+    ]
+  },
+
+
+  // Todo : Graph
+
+  // Graph Representation
+
+  "Graph_Representation":{
+    "prefix": "Graph_Representation",
+    "body": [
+      "class Graph{",
+      "    int V;",
+      "    list<int> *adj;",
+      "public:",
+      "    Graph(int V){",
+      "        this->V = V;",
+      "        adj = new list<int>[V];",
+      "    }",
+      "    void addEdge(int u, int v){",
+      "        adj[u].push_back(v);",
+      "        adj[v].push_back(u);",
+      "    }",
+      "    void printGraph(){",
+      "        for(int i=0; i<V; i++){",
+      "            cout << i << \" : \";",
+      "            for(auto x : adj[i]){",
+      "                cout << x << \" \";",
+      "            }",
+      "            cout << endl;",
+      "        }",
+      "    }",
+      "};"
+    ]
+  },
+
+
+  // with weight
+
+  "Graph_Representation_Weight":{
+    "prefix": "Graph_Representation_Weight",
+    "body": [
+      "class Graph{",
+      "    int V;",
+      "    list<pair<int, int> > *adj;",
+      "public:",
+      "    Graph(int V){",
+      "        this->V = V;",
+      "        adj = new list<pair<int, int> >[V];",
+      "    }",
+      "    void addEdge(int u, int v, int w){",
+      "        adj[u].push_back({v, w});",
+      "        adj[v].push_back({u, w});",
+      "    }",
+      "    void printGraph(){",
+      "        for(int i=0; i<V; i++){",
+      "            cout << i << \" : \";",
+      "            for(auto x : adj[i]){",
+      "                cout << x.first << \" \" << x.second << \" \";",
+      "            }",
+      "            cout << endl;",
+      "        }",
+      "    }",
+      "};"
+    ]
+  },
+
+
+  // Directed Graph
+
+  "Directed_Graph_Representation":{
+    "prefix": "Directed_Graph_Representation",
+    "body": [
+      "class Graph{",
+      "    int V;",
+      "    list<int> *adj;",
+      "public:",
+      "    Graph(int V){",
+      "        this->V = V;",
+      "        adj = new list<int>[V];",
+      "    }",
+      "    void addEdge(int u, int v){",
+      "        adj[u].push_back(v);",
+      "    }",
+      "    void printGraph(){",
+      "        for(int i=0; i<V; i++){",
+      "            cout << i << \" : \";",
+      "            for(auto x : adj[i]){",
+      "                cout << x << \" \";",
+      "            }",
+      "            cout << endl;",
+      "        }",
+      "    }",
+      "};"
+    ]
+  },
+
+
+  // Directed Graph with weight
+
+  "Directed_Graph_Representation_Weight":{
+    "prefix": "Directed_Graph_Representation_Weight",
+    "body": [
+      "class Graph{",
+      "    int V;",
+      "    list<pair<int, int> > *adj;",
+      "public:",
+      "    Graph(int V){",
+      "        this->V = V;",
+      "        adj = new list<pair<int, int> >[V];",
+      "    }",
+      "    void addEdge(int u, int v, int w){",
+      "        adj[u].push_back({v, w});",
+      "    }",
+      "    void printGraph(){",
+      "        for(int i=0; i<V; i++){",
+      "            cout << i << \" : \";",
+      "            for(auto x : adj[i]){",
+      "                cout << x.first << \" \" << x.second << \" \";",
+      "            }",
+      "            cout << endl;",
+      "        }",
+      "    }",
+      "};"
+    ]
+  },
+
+
+  // BFS
+
+  "BFS":{
+    "prefix": "BFS",
+    "body": [
+      "void BFS(Graph &g, int s){",
+      "    vector<bool> visited(g.V, false);",
+      "    queue<int> q;",
+      "    visited[s] = true;",
+      "    q.push(s);",
+      "    while(!q.empty()){",
+      "        int u = q.front();",
+      "        cout << u << \" \";",
+      "        q.pop();",
+      "        for(auto v : g.adj[u]){",
+      "            if(!visited[v]){",
+      "                visited[v] = true;",
+      "                q.push(v);",
+      "            }",
+      "        }",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // DFS
+
+  "DFS":{
+    "prefix": "DFS",
+    "body": [
+      "void DFS(Graph &g, int u, vector<bool> &visited){",
+      "    visited[u] = true;",
+      "    cout << u << \" \";",
+      "    for(auto v : g.adj[u]){",
+      "        if(!visited[v]){",
+      "            DFS(g, v, visited);",
+      "        }",
+      "    }",
+      "}",
+      "",
+      "void DFS(Graph &g, int s){",
+      "    vector<bool> visited(g.V, false);",
+      "    DFS(g, s, visited);",
+      "}"
+    ]
+  },
+
+  
+  // Shortest Path - Dijkstra
+
+  "Dijkstra":{
+    "prefix": "Dijkstra",
+    "body": [
+      "void dijkstra(Graph &g, int s){",
+      "    int V = g.V;",
+      "    vector<int> dist(V, INT_MAX);",
+      "    dist[s] = 0;",
+      "    set<pair<int, int> > st;",
+      "    st.insert({0, s});",
+      "    while(!st.empty()){",
+      "        pair<int, int> p = *st.begin();",
+      "        st.erase(st.begin());",
+      "        int u = p.second;",
+      "        for(auto x : g.adj[u]){",
+      "            int v = x.first;",
+      "            int weight = x.second;",
+      "            if(dist[v] > dist[u] + weight){",
+      "                if(dist[v] != INT_MAX){",
+      "                    st.erase(st.find({dist[v], v}));",
+      "                }",
+      "                dist[v] = dist[u] + weight;",
+      "                st.insert({dist[v], v});",
+      "            }",
+      "        }",
+      "    }",
+      "    for(int i=0; i<V; i++){",
+      "        cout << dist[i] << \" \";",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Shortest Path - Bellman Ford
+
+  "Bellman_Ford":{
+    "prefix": "Bellman_Ford",
+    "body": [
+      "void bellman_ford(Graph &g, int s){",
+      "    int V = g.V;",
+      "    vector<int> dist(V, INT_MAX);",
+      "    dist[s] = 0;",
+      "    for(int i=0; i<V-1; i++){",
+      "        for(int u=0; u<V; u++){",
+      "            for(auto x : g.adj[u]){",
+      "                int v = x.first;",
+      "                int weight = x.second;",
+      "                if(dist[u] != INT_MAX && dist[v] > dist[u] + weight){",
+      "                    dist[v] = dist[u] + weight;",
+      "                }",
+      "            }",
+      "        }",
+      "    }",
+      "    for(int u=0; u<V; u++){",
+      "        for(auto x : g.adj[u]){",
+      "            int v = x.first;",
+      "            int weight = x.second;",
+      "            if(dist[u] != INT_MAX && dist[v] > dist[u] + weight){",
+      "                cout << \"Graph contains negative weight cycle\";",
+      "                return;",
+      "            }",
+      "        }",
+      "    }",
+      "    for(int i=0; i<V; i++){",
+      "        cout << dist[i] << \" \";",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Shortest Path - Floyd Warshall
+
+  "Floyd_Warshall":{
+    "prefix": "Floyd_Warshall",
+    "body": [
+      "void floyd_warshall(Graph &g){",
+      "    int V = g.V;",
+      "    vector<vector<int> > dist(V, vector<int>(V, INT_MAX));",
+      "    for(int i=0; i<V; i++){",
+      "        dist[i][i] = 0;",
+      "        for(auto x : g.adj[i]){",
+      "            dist[i][x.first] = x.second;",
+      "        }",
+      "    }",
+      "    for(int k=0; k<V; k++){",
+      "        for(int i=0; i<V; i++){",
+      "            for(int j=0; j<V; j++){",
+      "                if(dist[i][k] != INT_MAX && dist[k][j] != INT_MAX && dist[i][j] > dist[i][k] + dist[k][j]){",
+      "                    dist[i][j] = dist[i][k] + dist[k][j];",
+      "                }",
+      "            }",
+      "        }",
+      "    }",
+      "    for(int i=0; i<V; i++){",
+      "        for(int j=0; j<V; j++){",
+      "            cout << dist[i][j] << \" \";",
+      "        }",
+      "        cout << endl;",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // Minimum Spanning Tree - Prim
+
+  "Prim":{
+    "prefix": "Prim",
+    "body": [
+      "void prim(Graph &g){",
+      "    int V = g.V;",
+      "    vector<int> parent(V, -1);",
+      "    vector<int> key(V, INT_MAX);",
+      "    vector<bool> mstSet(V, false);",
+      "    key[0] = 0;",
+      "    set<pair<int, int> > st;",
+      "    st.insert({0, 0});",
+      "    while(!st.empty()){",
+      "        pair<int, int> p = *st.begin();",
+      "        st.erase(st.begin());",
+      "        int u = p.second;",
+      "        mstSet[u] = true;",
+      "        for(auto x : g.adj[u]){",
+      "            int v = x.first;",
+      "            int weight = x.second;",
+      "            if(mstSet[v] == false && key[v] > weight){",
+      "                if(key[v] != INT_MAX){",
+      "                    st.erase(st.find({key[v], v}));",
+      "                }",
+      "                key[v] = weight;",
+      "                st.insert({key[v], v});",
+      "                parent[v] = u;",
+      "            }",
+      "        }",
+      "    }",
+      "    for(int i=1; i<V; i++){",
+      "        cout << parent[i] << \" - \" << i << \" : \" << key[i] << endl;",
+      "    }",
+      "}"
+    ]
+  },
+
+
+  // DSU
+
+  "DSU":{
+    "prefix": "DSU",
+    "body": [
+      "class DSU{",
+      "    vector<int> parent, rank;",
+      "public:",
+      "    DSU(int n){",
+      "        parent.resize(n);",
+      "        rank.resize(n);",
+      "        for(int i=0; i<n; i++){",
+      "            parent[i] = i;",
+      "            rank[i] = 0;",
+      "        }",
+      "    }",
+      "    int find(int u){",
+      "        if(parent[u] == u){",
+      "            return u;",
+      "        }",
+      "        return parent[u] = find(parent[u]);",
+      "    }",
+      "    void merge(int u, int v){",
+      "        u = find(u);",
+      "        v = find(v);",
+      "        if(u != v){",
+      "            if(rank[u] < rank[v]){",
+      "                swap(u, v);",
+      "            }",
+      "            parent[v] = u;",
+      "            if(rank[u] == rank[v]){",
+      "                rank[u]++;",
+      "            }",
+      "        }",
+      "    }",
+      "};"
+    ]
+  },
+
+
+  // Minimum Spanning Tree - Kruskal
+
+  "Kruskal":{
+    "prefix": "Kruskal",
+    "body": [
+      "void kruskal(Graph &g){",
+      "    int V = g.V;",
+      "    vector<pair<int, pair<int, int> > > edges;",
+      "    for(int i=0; i<V; i++){",
+      "        for(auto x : g.adj[i]){",
+      "            edges.push_back({x.second, {i, x.first}});",
+      "        }",
+      "    }",
+      "    sort(edges.begin(), edges.end());",
+      "    DSU dsu(V);",
+      "    for(auto x : edges){",
+      "        int u = x.second.first, v = x.second.second;",
+      "        if(dsu.find(u) != dsu.find(v)){",
+      "            cout << u << \" - \" << v << \" : \" << x.first << endl;",
+      "            dsu.merge(u, v);",
+      "        }",
+      "    }",
+      "}"
+    ]
+  },
+
+
+
+
+  // Topological Sort
+
+  "Topological_Sort":{
+    "prefix": "Topological_Sort",
+    "body": [
+      "void topological_sort_util(Graph &g, int u, vector<bool> &visited, stack<int> &st){",
+      "    visited[u] = true;",
+      "    for(auto v : g.adj[u]){",
+      "        if(!visited[v]){",
+      "            topological_sort_util(g, v, visited, st);",
+      "        }",
+      "    }",
+      "    st.push(u);",
+      "}",
+      "",
+      "void topological_sort(Graph &g){",
+      "    vector<bool> visited(g.V, false);",
+      "    stack<int> st;",
+      "    for(int i=0; i<g.V; i++){",
+      "        if(!visited[i]){",
+      "            topological_sort_util(g, i, visited, st);",
+      "        }",
+      "    }",
+      "    while(!st.empty()){",
+      "        cout << st.top() << \" \";",
+      "        st.pop();",
+      "    }",
+      "}"
+    ]
+  },
+
+
+
+  // Todo : DP
+
+  // Maximum Subarray Sum
+
+  "Maximum_Subarray_Sum":{
+    "prefix": "Maximum_Subarray_Sum",
+    "body": [
+      "int max_subarray_sum(vector<int>& arr){",
+      "    int n = arr.size();",
+      "    int max_sum = arr[0], curr_sum = arr[0];",
+      "    for(int i=1; i<n; i++){",
+      "        curr_sum = max(arr[i], curr_sum + arr[i]);",
+      "        max_sum = max(max_sum, curr_sum);",
+      "    }",
+      "    return max_sum;",
+      "}"
+    ]
+  },
+
+
+  // Longest Common Subsequence
+
+  "Longest_Common_Subsequence":{
+    "prefix": "Longest_Common_Subsequence",
+    "body": [
+      "int lcs(string s1, string s2){",
+      "    int n = s1.size(), m = s2.size();",
+      "    vector<vector<int> > dp(n+1, vector<int>(m+1, 0));",
+      "    for(int i=1; i<=n; i++){",
+      "        for(int j=1; j<=m; j++){",
+      "            if(s1[i-1] == s2[j-1]){",
+      "                dp[i][j] = 1 + dp[i-1][j-1];",
+      "            }",
+      "            else{",
+      "                dp[i][j] = max(dp[i-1][j], dp[i][j-1]);",
+      "            }",
+      "        }",
+      "    }",
+      "    return dp[n][m];",
+      "}"
+    ]
+  },
+
+
+  // Fibonacci
+
+  "Fibonacci":{
+    "prefix": "Fibonacci",
+    "body": [
+      "int fibonacci(int n){",
+      "    if(n <= 1){",
+      "        return n;",
+      "    }",
+      "    vector<int> dp(n+1);",
+      "    dp[0] = 0;",
+      "    dp[1] = 1;",
+      "    for(int i=2; i<=n; i++){",
+      "        dp[i] = dp[i-1] + dp[i-2];",
+      "    }",
+      "    return dp[n];",
+      "}"
+    ]
+  },
+
+
+  // Rod Cutting
+
+  "Rod_Cutting":{
+    "prefix": "Rod_Cutting",
+    "body": [
+      "int rod_cutting(vector<int>& price, int n){",
+      "    vector<int> dp(n+1);",
+      "    dp[0] = 0;",
+      "    for(int i=1; i<=n; i++){",
+      "        int max_val = INT_MIN;",
+      "        for(int j=0; j<i; j++){",
+      "            max_val = max(max_val, price[j] + dp[i-j-1]);",
+      "        }",
+      "        dp[i] = max_val;",
+      "    }",
+      "    return dp[n];",
+      "}"
+    ]
+  },
+
+
+  // Coin Change
+
+  "Coin_Change":{
+    "prefix": "Coin_Change",
+    "body": [
+      "int coin_change(vector<int>& coins, int amount){",
+      "    vector<int> dp(amount+1, INT_MAX);",
+      "    dp[0] = 0;",
+      "    for(int i=1; i<=amount; i++){",
+      "        for(int j=0; j<coins.size(); j++){",
+      "            if(coins[j] <= i){",
+      "                dp[i] = min(dp[i], dp[i-coins[j]] + 1);",
+      "            }",
+      "        }",
+      "    }",
+      "    return dp[amount] == INT_MAX ? -1 : dp[amount];",
+      "}"
+    ]
+  },
+
+
+  // 0/1 Knapsack
+
+  "Knapsack_01":{
+    "prefix": "Knapsack_01",
+    "body": [
+      "int knapsack_01(vector<int>& wt, vector<int>& val, int W){",
+      "    int n = wt.size();",
+      "    vector<vector<int> > dp(n+1, vector<int>(W+1, 0));",
+      "    for(int i=1; i<=n; i++){",
+      "        for(int w=1; w<=W; w++){",
+      "            if(wt[i-1] <= w){",
+      "                dp[i][w] = max(val[i-1] + dp[i-1][w-wt[i-1]], dp[i-1][w]);",
+      "            }",
+      "            else{",
+      "                dp[i][w] = dp[i-1][w];",
+      "            }",
+      "        }",
+      "    }",
+      "    return dp[n][W];",
+      "}"
+    ]
+  },
+
+  
+}
+
