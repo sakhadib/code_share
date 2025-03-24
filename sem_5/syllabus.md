@@ -42,6 +42,8 @@
 
 ## Design Patterns (The Full Syllabus)
 
+> Codes for all patterns and scenarios attached in : https://github.com/sakhadib/Design-Patterns
+
 ### Before Mid
 
 1. Strategy Pattern
