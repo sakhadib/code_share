@@ -1,7 +1,13 @@
 ## Software Security
 
-1. Lectures : 1, 3, 5, 6, 7, 8, 9
-2. Compound BPF code syntax
+1. Lecture 1 - [Note](https://rightful-bakery-2bc.notion.site/Lecture-1-130c52376e4a80d8ab91ee3cc17a48eb?pvs=4)
+2. Lecture 3 - [Note](https://rightful-bakery-2bc.notion.site/Lecture-3-1c1c52376e4a80c79114f3e1803e2853?pvs=4)
+3. Lecture 5 - [Note](https://rightful-bakery-2bc.notion.site/Lecture-5-130c52376e4a807a801aff04131f756c?pvs=4)
+4. Lecture 6 - [Note](https://rightful-bakery-2bc.notion.site/Lecture-6-130c52376e4a800e8ebcde1d5d57d990?pvs=4)
+5. Lecture 7 - [Note](https://rightful-bakery-2bc.notion.site/Lecture-7-1acc52376e4a801a9f9dd54be6d54a16?pvs=4)
+6. Lecture 8
+7. Lecture 9
+8. Compound BPF code syntax
 
 --------------------------------------------------------------------
 
