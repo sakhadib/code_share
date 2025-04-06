@@ -117,6 +117,10 @@ Caution:
 >[!Note]
 >Errors And Significant Digits
 >[https://rightful-bakery-2bc.notion.site/Error-Calculation-1ccc52376e4a801f92dbd8ce91b8ce50?pvs=4](https://rightful-bakery-2bc.notion.site/Error-Calculation-1ccc52376e4a801f92dbd8ce91b8ce50?pvs=4)
+
+>[!Note]
+>Taylor and McLaurine Series
+>[https://rightful-bakery-2bc.notion.site/Taylor-Series-1cdc52376e4a80aba6e3f037a16685e1?pvs=4](https://rightful-bakery-2bc.notion.site/Taylor-Series-1cdc52376e4a80aba6e3f037a16685e1?pvs=4)
 ---
 
 Question-3 (19 marks):  
