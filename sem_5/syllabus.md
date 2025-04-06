@@ -48,7 +48,7 @@
 
 ## Design Patterns (The Full Syllabus)
 
-> Codes for all patterns and scenarios attached in : https://github.com/sakhadib/Design-Patterns
+> Codes for all patterns and scenarios attached in : [https://github.com/sakhadib/Design-Patterns](https://github.com/sakhadib/Design-Patterns)
 
 ### Before Mid
 
@@ -64,12 +64,11 @@
 ### After Mid
 
 8. Facade Pattern
-9. Mediator Pattern
-10. Proxy Pattern
-11. Command Pattern
-12. Observer Pattern
-13. Memento Pattern
-14. Prototype Pattern
+9. Proxy Pattern
+10. Command Pattern
+11. Observer Pattern
+12. Prototype Pattern
+13. Flyweight Pattern
 
 --------------------------------------------------------------------
 
@@ -89,6 +88,10 @@ Caution:
   - In the root-finding math, you have to formulate the function after reading the given scenario.  
   - Try to be as careful as you possibly can while working on this question for avoiding silly mistakes.  
   - Note that the equation pertinent to the question consists of a hyperbolic function.
+
+>[!Note]
+>Newton Raphson Method and Secant Method
+>[https://rightful-bakery-2bc.notion.site/Root-Finding-1ccc52376e4a80c9930ec0f001e20f3b?pvs=4](https://rightful-bakery-2bc.notion.site/Root-Finding-1ccc52376e4a80c9930ec0f001e20f3b?pvs=4)
 
 ---
 
@@ -111,6 +114,9 @@ Caution:
   - You'll have to use the first 5 terms of the Taylor series.  
   - Remember to practise long-division for polynomials.
 
+>[!Note]
+>Errors And Significant Digits
+>[https://rightful-bakery-2bc.notion.site/Error-Calculation-1ccc52376e4a801f92dbd8ce91b8ce50?pvs=4](https://rightful-bakery-2bc.notion.site/Error-Calculation-1ccc52376e4a801f92dbd8ce91b8ce50?pvs=4)
 ---
 
 Question-3 (19 marks):  
