@@ -13,18 +13,18 @@
 
 ## Server Programming
 
-1. MVC design pattern and flow
-2. N-Tier architecture
-3. SSO
-4. Common Web Concerns
-5. Web Vulnerabilities and Attacks
-6. Caching and Proxy
-7. System design fundamentals
-8. System design problems and examples : Messenger, Twitter, Tinder, Youtube, Netflix, Github
-9. Back of the envelope calculations
-10. Load Balancer
-11. Database Replication and CQRS
-12. Theories and Concerns of Deployment
+- [ ] HTTP protocols basics
+- [ ] API
+- [ ] MVC
+- [ ] N-tier Architecture
+- [ ] Web Vulnerabilities
+- [ ] System Design
+- [ ] Back of the envelope calculations
+- [ ] Proxy
+- [ ] Database sharding
+- [ ] Push notification
+- [ ] Deployment
+- [ ] P2P Protocols
 
 --------------------------------------------------------------------
 
