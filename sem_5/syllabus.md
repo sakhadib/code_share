@@ -32,12 +32,10 @@
 
 1. Support Vector Machine
 2. KNN : K-Nearest Neighbors
-3. NN : Neural Networks
-4. ANN : Artificial Neural Networks
-5. CNN : Convolutional Neural Networks
-6. RNN : Recurrent Neural Networks
-7. Clustering and Un-Supervised Learning
-8. Basic ML practices
+3. ANN : Artificial Neural Networks
+4. CNN : Convolutional Neural Networks
+5. RNN : Recurrent Neural Networks
+6. Clustering and Un-Supervised Learning
 
 
 --------------------------------------------------------------------
